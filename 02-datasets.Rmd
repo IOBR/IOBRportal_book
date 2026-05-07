@@ -1,6 +1,6 @@
 # Datasets
 
-## TCGA Cohorts
+## TCGA Cohort
 
 Database-driven workflow for TCGA cohort analysis, including data selection, signature scoring or TME deconvolution, clustering, visualization, survival analysis, correlation analysis, and group comparison.
 
@@ -189,7 +189,7 @@ The workflow returns a matched TCGA dataset that can be reused across multiple d
 - If needed, you can adjust the plot width and height before downloading to obtain a more suitable layout.
 
 
-## Cancer Cohorts
+## MOCL (Molecular Cohort)
 
 Database-driven workflow for cancer cohort analysis, including data selection, signature scoring or TME deconvolution, clustering, visualization, correlation analysis, and group comparison.
 
@@ -393,7 +393,7 @@ The workflow returns a prepared cancer cohort dataset that can be reused across 
 - If needed, you can adjust the plot width and height before downloading to obtain a more suitable layout.
 
 
-## Immunotherapy Cohorts
+## IMMC (Immunotherapy Cohort)
 
 Database-driven workflow for immunotherapy cohort analysis, including data selection, signature scoring or TME deconvolution, clustering, visualization, correlation analysis, and group comparison.
 
@@ -595,7 +595,7 @@ The workflow returns a prepared immunotherapy cohort dataset that can be reused 
 - If needed, you can adjust the plot width and height before downloading to obtain a more suitable layout.
 
 
-## Other Cohorts
+## CLIC (Clinical Cohort)
 
 Database-driven workflow for CPTAC and TARGET cohort analysis, including data selection, signature scoring or TME deconvolution, clustering, visualization, survival analysis, correlation analysis, and group comparison.
 
