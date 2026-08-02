@@ -5,25 +5,25 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>4 Workflows | IOBRportal Book</title>
-  <meta name="description" content="Tutorial and documentation for IOBRportal." />
+  <meta name="description" content="Tutorials and documentation for IOBRportal." />
   <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
   <meta property="og:title" content="4 Workflows | IOBRportal Book" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="Tutorial and documentation for IOBRportal." />
-  <meta name="github-repo" content="qingcongl/IOBRportal-book" />
+  <meta property="og:description" content="Tutorials and documentation for IOBRportal." />
+  <meta name="github-repo" content="qingcongl/IOBRportal_book" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="4 Workflows | IOBRportal Book" />
   
-  <meta name="twitter:description" content="Tutorial and documentation for IOBRportal." />
+  <meta name="twitter:description" content="Tutorials and documentation for IOBRportal." />
   
 
-<meta name="author" content="Qingcong Luo, Dongqiang Zeng" />
+<meta name="author" content="Qingcong Luo and Dongqiang Zeng" />
 
 
-<meta name="date" content="2026-03-06" />
+<meta name="date" content="2026-08-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="datasets.html"/>
-
+<link rel="next" href="data-preprocessing-and-benchmark-resources.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -54,6 +54,70 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <style type="text/css">
   
@@ -76,12 +140,15 @@
 <li><a href="./">A Minimal Book Example</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Framework</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> IOBRportal framework</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#introduction"><i class="fa fa-check"></i><b>1.1</b> 📚 Introduction</a></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#license"><i class="fa fa-check"></i><b>1.2</b> 💿 License</a></li>
-<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#citations"><i class="fa fa-check"></i><b>1.3</b> 🏆 Citations</a></li>
-<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#reporting-bugs"><i class="fa fa-check"></i><b>1.4</b> ✉️ Reporting bugs</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#analysis-workflow"><i class="fa fa-check"></i><b>1.2</b> 🔄 Analysis workflow</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#access-iobrportal"><i class="fa fa-check"></i><b>1.3</b> 🚀 Access IOBRportal</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#about-this-book"><i class="fa fa-check"></i><b>1.4</b> 📖 About this book</a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#license"><i class="fa fa-check"></i><b>1.5</b> 💿 License</a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#citations"><i class="fa fa-check"></i><b>1.6</b> 🏆 Citations</a></li>
+<li class="chapter" data-level="1.7" data-path="index.html"><a href="index.html#reporting-bugs"><i class="fa fa-check"></i><b>1.7</b> ✉️ Reporting bugs</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>2</b> Functions</a>
 <ul>
@@ -96,15 +163,20 @@
 <li class="chapter" data-level="3" data-path="datasets.html"><a href="datasets.html"><i class="fa fa-check"></i><b>3</b> Datasets</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="datasets.html"><a href="datasets.html#tcga-cohorts"><i class="fa fa-check"></i><b>3.1</b> TCGA Cohorts</a></li>
-<li class="chapter" data-level="3.2" data-path="datasets.html"><a href="datasets.html#cancer-cohorts"><i class="fa fa-check"></i><b>3.2</b> Cancer Cohorts</a></li>
-<li class="chapter" data-level="3.3" data-path="datasets.html"><a href="datasets.html#immunotherapy-cohorts"><i class="fa fa-check"></i><b>3.3</b> Immunotherapy Cohorts</a></li>
-<li class="chapter" data-level="3.4" data-path="datasets.html"><a href="datasets.html#other-cohorts"><i class="fa fa-check"></i><b>3.4</b> Other Cohorts</a></li>
+<li class="chapter" data-level="3.2" data-path="datasets.html"><a href="datasets.html#molc-molecular-cohort"><i class="fa fa-check"></i><b>3.2</b> MOLC (Molecular Cohort)</a></li>
+<li class="chapter" data-level="3.3" data-path="datasets.html"><a href="datasets.html#immc-immunotherapy-cohort"><i class="fa fa-check"></i><b>3.3</b> IMMC (Immunotherapy Cohort)</a></li>
+<li class="chapter" data-level="3.4" data-path="datasets.html"><a href="datasets.html#clic-clinical-cohort"><i class="fa fa-check"></i><b>3.4</b> CLIC (Clinical Cohort)</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="workflows.html"><a href="workflows.html"><i class="fa fa-check"></i><b>4</b> Workflows</a>
 <ul>
 <li class="chapter" data-level="4.1" data-path="workflows.html"><a href="workflows.html#iobr-workflow"><i class="fa fa-check"></i><b>4.1</b> IOBR Workflow</a></li>
 <li class="chapter" data-level="4.2" data-path="workflows.html"><a href="workflows.html#mutation-workflow"><i class="fa fa-check"></i><b>4.2</b> Mutation Workflow</a></li>
 <li class="chapter" data-level="4.3" data-path="workflows.html"><a href="workflows.html#signature-gene-workflow"><i class="fa fa-check"></i><b>4.3</b> Signature-Gene Workflow</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-preprocessing-and-benchmark-resources.html"><a href="data-preprocessing-and-benchmark-resources.html"><i class="fa fa-check"></i><b>5</b> Data preprocessing and benchmark resources</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="data-preprocessing-and-benchmark-resources.html"><a href="data-preprocessing-and-benchmark-resources.html#gse62254-data-preparation"><i class="fa fa-check"></i><b>5.1</b> GSE62254 data preparation</a></li>
+<li class="chapter" data-level="5.2" data-path="data-preprocessing-and-benchmark-resources.html"><a href="data-preprocessing-and-benchmark-resources.html#task-level-benchmark-preparation"><i class="fa fa-check"></i><b>5.2</b> Task-level benchmark preparation</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -337,16 +409,17 @@ TCGA-B7-A5TK      Stage_II   Alive     Intestinal                   NE          
 </div>
 <div id="mutation-workflow" class="section level2 hasAnchor" number="4.2">
 <h2><span class="header-section-number">4.2</span> Mutation Workflow<a href="workflows.html#mutation-workflow" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>User-uploaded workflow for mutation matrix construction and mutation-associated signature analysis.</p>
-<p>This workflow starts from a mutation annotation file and converts it into a binary mutation matrix, then combines the generated mutation matrix with a user-provided signature matrix to identify phenotype- or signature-associated mutations.</p>
+<p>User-uploaded workflow for mutation matrix construction, mutation-associated signature analysis, and mutation-based survival analysis.</p>
+<p>This workflow converts a user-uploaded mutation annotation file into a binary mutation matrix. The generated matrix can then be combined with a user-provided signature matrix to identify phenotype- or signature-associated mutations or with user-provided clinical data to evaluate mutation–survival associations.</p>
 <p><strong>Overview</strong></p>
-<p>The workflow is organized into two parts:</p>
+<p>The workflow is organized into three parts:</p>
 <ul>
-<li><strong>Build Mutation Matrix</strong></li>
-<li><strong>Find Mutations</strong></li>
+<li><strong>Part 1 · Build Mutation Matrix</strong></li>
+<li><strong>Part 2 · Find Mutations</strong></li>
+<li><strong>Part 3 · Survival Analysis</strong></li>
 </ul>
 <p><strong>Data source</strong></p>
-<p>The workflow uses user-uploaded data and intermediate results generated inside the workflow.</p>
+<p>The workflow uses user-uploaded data and intermediate results generated within the workflow.</p>
 <p>Main inputs include:</p>
 <ul>
 <li><strong>Mutation annotation file</strong>
@@ -355,13 +428,13 @@ TCGA-B7-A5TK      Stage_II   Alive     Intestinal                   NE          
 <li>Typically a MAF-format mutation file</li>
 </ul></li>
 </ul>
-<p>Mutation Annotation Format (MAF) table</p>
-<pre class="text"><code>                Hugo_Symbol   Tumor_Sample_Barcode   Variant_Classification
-1                 TP53          TCGA-3M-AB46          Missense_Mutation
-2                 ARID1A        TCGA-3M-AB46          Frame_Shift_Del
-3                 PIK3CA        TCGA-3M-AB47          Missense_Mutation
-4                 CDH1          TCGA-B7-5818          Nonsense_Mutation
-5                 FAT4          TCGA-B7-A5TI          Frame_Shift_Ins</code></pre>
+<p>Mutation Annotation Format (MAF) table:</p>
+<pre class="text"><code>              Hugo_Symbol   Tumor_Sample_Barcode   Variant_Classification
+1             TP53          TCGA-3M-AB46           Missense_Mutation
+2             ARID1A        TCGA-3M-AB46           Frame_Shift_Del
+3             PIK3CA        TCGA-3M-AB47           Missense_Mutation
+4             CDH1          TCGA-B7-5818           Nonsense_Mutation
+5             FAT4          TCGA-B7-A5TI           Frame_Shift_Ins</code></pre>
 <ul>
 <li><strong>Signature matrix</strong>
 <ul>
@@ -369,21 +442,37 @@ TCGA-B7-A5TK      Stage_II   Alive     Intestinal                   NE          
 <li>Used to test mutation-associated differences in a selected signature</li>
 </ul></li>
 </ul>
-<pre class="text"><code>              ID          CD_8_T_effector       DDR           APM    Immune_Checkpoint  CellCycle_Reg
-1         TCGA-2F-A9KO         4.7093          -4.3653       3.1724          4.5259           -1.3468
-2         TCGA-2F-A9KP        -1.6480           5.0614      -1.3928         -1.4447            3.2313
-3         TCGA-2F-A9KQ        -2.1915         -11.1568      -1.8568         -1.7691            0.6771
-4         TCGA-2F-A9KR         0.0528           3.2845       1.6877         -0.2206           -1.3867
-5         TCGA-2F-A9KT        -0.9226           7.1762      -1.6106         -1.0915           -1.1749</code></pre>
+<pre class="text"><code>          ID             CD_8_T_effector       DDR        APM       Immune_Checkpoint   CellCycle_Reg
+1         TCGA-2F-A9KO          4.7093        -4.3653     3.1724          4.5259           -1.3468
+2         TCGA-2F-A9KP         -1.6480         5.0614    -1.3928         -1.4447            3.2313
+3         TCGA-2F-A9KQ         -2.1915       -11.1568    -1.8568         -1.7691            0.6771
+4         TCGA-2F-A9KR          0.0528         3.2845     1.6877         -0.2206           -1.3867
+5         TCGA-2F-A9KT         -0.9226         7.1762    -1.6106         -1.0915           -1.1749</code></pre>
+<ul>
+<li><strong>Clinical and survival data</strong>
+<ul>
+<li>Uploaded in <strong>Survival Analysis</strong></li>
+<li>Must contain a sample ID column, survival-time variable, and survival-status variable</li>
+<li>Used together with the generated mutation matrix for mutation-based survival analysis</li>
+</ul></li>
+</ul>
+<pre class="text"><code>          ID             OS_time       OS_status
+1         TCGA-2F-A9KO       18.2             1
+2         TCGA-2F-A9KP       32.6             0
+3         TCGA-2F-A9KQ       11.4             1
+4         TCGA-2F-A9KR       45.8             0
+5         TCGA-2F-A9KT       27.1             1</code></pre>
 <p>Intermediate data generated within the workflow include:</p>
 <ul>
 <li>binary mutation matrix</li>
 <li>subtype-specific mutation matrices such as SNP, INDEL, or Frameshift tables</li>
-<li>mutation-associated plots generated in downstream analysis</li>
+<li>mutation-associated plots</li>
+<li>mutation–clinical integrated data</li>
+<li>mutation-associated survival statistics</li>
 </ul>
-<p><strong>Build Mutation Matrix</strong></p>
+<p><strong>Part 1 · Build Mutation Matrix</strong></p>
 <p>This step converts the uploaded mutation annotation file into a binary mutation matrix for downstream analysis.</p>
-<p>The generated matrix is automatically passed to the next step in the workflow.</p>
+<p>The generated matrix is automatically passed to both <strong>Find Mutations</strong> and <strong>Survival Analysis</strong>.</p>
 <p><strong>Parameters</strong></p>
 <ul>
 <li><strong>TCGA</strong> (<code>isTCGA</code>)
@@ -408,9 +497,9 @@ TCGA-B7-A5TK      Stage_II   Alive     Intestinal                   NE          
 <li>Click <strong>Run Analysis</strong>.</li>
 <li>Review the generated mutation matrix.</li>
 </ol>
-<p><strong>Find Mutations</strong></p>
+<p><strong>Part 2 · Find Mutations</strong></p>
 <p>This step identifies mutations associated with a selected signature using the mutation matrix generated in the previous step.</p>
-<p>It produces at least two plots:</p>
+<p>It produces two principal plots:</p>
 <ul>
 <li><strong>Oncoprint</strong></li>
 <li><strong>Box Plot</strong></li>
@@ -470,14 +559,49 @@ TCGA-B7-A5TK      Stage_II   Alive     Intestinal                   NE          
 <li>Open the <strong>Find Mutations</strong> tab.</li>
 <li>Upload the signature matrix.</li>
 <li>Set the <strong>ID Column</strong> and select the target <strong>Signature</strong>.</li>
-<li>Choose the mutation frequency threshold and statistical method.</li>
-<li>Adjust oncoprint and box plot parameters if needed.</li>
+<li>Choose the mutation-frequency threshold and statistical method.</li>
+<li>Adjust the oncoprint and box-plot parameters if needed.</li>
 <li>Click <strong>Run Analysis</strong>.</li>
 <li>Review the generated <strong>Oncoprint</strong> and <strong>Box Plot</strong> results.</li>
 </ol>
-<p><strong>How the workflow connects the two parts</strong></p>
-<p>After <strong>Build Mutation Matrix</strong> is completed, the generated mutation matrix is automatically used as the mutation input for <strong>Find Mutations</strong>.</p>
-<p>You only need to upload the signature matrix in the second step and then run the mutation-association analysis.</p>
+<p><strong>Part 3 · Survival Analysis</strong></p>
+<p>This step integrates the mutation matrix generated in <strong>Build Mutation Matrix</strong> with user-uploaded clinical and survival data.</p>
+<p>The matched data are automatically passed to <strong>Batch Survival</strong> for screening associations between multiple mutations and patient survival.</p>
+<p><strong>Main inputs</strong></p>
+<ul>
+<li><strong>Clinical Data</strong>
+<ul>
+<li>User-uploaded clinical and survival table</li>
+</ul></li>
+<li><strong>ID Column</strong>
+<ul>
+<li>Sample ID column used to match the clinical data with the mutation matrix</li>
+</ul></li>
+<li><strong>Variables</strong>
+<ul>
+<li>Mutations selected for batch survival screening</li>
+</ul></li>
+<li><strong>Time</strong>
+<ul>
+<li>Survival-time variable</li>
+</ul></li>
+<li><strong>Status</strong>
+<ul>
+<li>Survival-status variable coded as <code>0</code> and <code>1</code></li>
+</ul></li>
+</ul>
+<p><strong>Survival Analysis steps</strong></p>
+<ol style="list-style-type: decimal">
+<li>Open the <strong>Survival Analysis</strong> tab.</li>
+<li>Upload the clinical and survival data.</li>
+<li>Select the sample ID, survival-time, and survival-status columns.</li>
+<li>Select one or more mutations for batch survival analysis.</li>
+<li>Click <strong>Run Analysis</strong>.</li>
+<li>Review the mutation-associated survival results.</li>
+</ol>
+<p><strong>How the workflow connects the three parts</strong></p>
+<p>After <strong>Build Mutation Matrix</strong> is completed, the generated mutation matrix is automatically passed to both <strong>Find Mutations</strong> and <strong>Survival Analysis</strong>.</p>
+<p>Users only need to upload the signature matrix in <strong>Find Mutations</strong> and the clinical data in <strong>Survival Analysis</strong>. The workflow automatically coordinates the mutation matrix with these downstream inputs.</p>
 <p><strong>Output</strong></p>
 <p>The workflow returns results that can be reused for mutation-related interpretation, including:</p>
 <ul>
@@ -485,14 +609,16 @@ TCGA-B7-A5TK      Stage_II   Alive     Intestinal                   NE          
 <li>subtype-specific mutation matrix tables</li>
 <li>mutation-associated oncoprint</li>
 <li>mutation-associated box plot</li>
-<li>result files generated by the mutation analysis step</li>
+<li>mutation–clinical integrated data</li>
+<li>batch mutation-survival analysis results</li>
+<li>result files generated by the downstream modules</li>
 </ul>
 <p><strong>Download</strong></p>
 <ul>
 <li>Tables generated in the workflow can be exported from their corresponding <strong>Download</strong> panels.</li>
-<li>Plots generated in the workflow can be exported from the <strong>Download</strong> panels.</li>
-<li>An initial plot size is provided, which can be adjusted if needed.</li>
-<li>If needed, you can adjust the plot width and height before downloading to obtain a more suitable layout.</li>
+<li>Plots generated in the workflow can be exported from the corresponding <strong>Download</strong> panels.</li>
+<li>An initial plot size is provided and can be adjusted if needed.</li>
+<li>Plot width and height can be modified before downloading to obtain a more suitable layout.</li>
 </ul>
 </div>
 <div id="signature-gene-workflow" class="section level2 hasAnchor" number="4.3">
@@ -611,8 +737,8 @@ ENSG00000000457      1126          745           1040          1260</code></pre>
           </div>
         </div>
       </div>
-<a href="datasets.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="datasets.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-preprocessing-and-benchmark-resources.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

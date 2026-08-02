@@ -11,5 +11,6 @@ rmd_files:
   - "01-functions.Rmd"
   - "02-datasets.Rmd"
   - "03-workflows.Rmd"
+  - "04-case-data-preprocessing.Rmd"
 
 

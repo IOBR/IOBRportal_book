@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>5 Data preprocessing and benchmark resources | IOBRportal Book</title>
+  <meta name="description" content="Tutorials and documentation for IOBRportal." />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="5 Data preprocessing and benchmark resources | IOBRportal Book" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Tutorials and documentation for IOBRportal." />
+  <meta name="github-repo" content="qingcongl/IOBRportal_book" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="5 Data preprocessing and benchmark resources | IOBRportal Book" />
+  
+  <meta name="twitter:description" content="Tutorials and documentation for IOBRportal." />
+  
+
+<meta name="author" content="Qingcong Luo and Dongqiang Zeng" />
+
+
+<meta name="date" content="2026-08-02" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="workflows.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> IOBRportal framework</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#introduction"><i class="fa fa-check"></i><b>1.1</b> 📚 Introduction</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#analysis-workflow"><i class="fa fa-check"></i><b>1.2</b> 🔄 Analysis workflow</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#access-iobrportal"><i class="fa fa-check"></i><b>1.3</b> 🚀 Access IOBRportal</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#about-this-book"><i class="fa fa-check"></i><b>1.4</b> 📖 About this book</a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#license"><i class="fa fa-check"></i><b>1.5</b> 💿 License</a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#citations"><i class="fa fa-check"></i><b>1.6</b> 🏆 Citations</a></li>
+<li class="chapter" data-level="1.7" data-path="index.html"><a href="index.html#reporting-bugs"><i class="fa fa-check"></i><b>1.7</b> ✉️ Reporting bugs</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>2</b> Functions</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="functions.html"><a href="functions.html#data-preparation"><i class="fa fa-check"></i><b>2.1</b> Data Preparation</a></li>
+<li class="chapter" data-level="2.2" data-path="functions.html"><a href="functions.html#sigscore-calculation"><i class="fa fa-check"></i><b>2.2</b> SigScore Calculation</a></li>
+<li class="chapter" data-level="2.3" data-path="functions.html"><a href="functions.html#tme-deconvolution"><i class="fa fa-check"></i><b>2.3</b> TME Deconvolution</a></li>
+<li class="chapter" data-level="2.4" data-path="functions.html"><a href="functions.html#statistical-analysis"><i class="fa fa-check"></i><b>2.4</b> Statistical Analysis</a></li>
+<li class="chapter" data-level="2.5" data-path="functions.html"><a href="functions.html#tme-interaction"><i class="fa fa-check"></i><b>2.5</b> TME Interaction</a></li>
+<li class="chapter" data-level="2.6" data-path="functions.html"><a href="functions.html#visualization"><i class="fa fa-check"></i><b>2.6</b> Visualization</a></li>
+<li class="chapter" data-level="2.7" data-path="functions.html"><a href="functions.html#mutation-module"><i class="fa fa-check"></i><b>2.7</b> Mutation Module</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="datasets.html"><a href="datasets.html"><i class="fa fa-check"></i><b>3</b> Datasets</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="datasets.html"><a href="datasets.html#tcga-cohorts"><i class="fa fa-check"></i><b>3.1</b> TCGA Cohorts</a></li>
+<li class="chapter" data-level="3.2" data-path="datasets.html"><a href="datasets.html#molc-molecular-cohort"><i class="fa fa-check"></i><b>3.2</b> MOLC (Molecular Cohort)</a></li>
+<li class="chapter" data-level="3.3" data-path="datasets.html"><a href="datasets.html#immc-immunotherapy-cohort"><i class="fa fa-check"></i><b>3.3</b> IMMC (Immunotherapy Cohort)</a></li>
+<li class="chapter" data-level="3.4" data-path="datasets.html"><a href="datasets.html#clic-clinical-cohort"><i class="fa fa-check"></i><b>3.4</b> CLIC (Clinical Cohort)</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="workflows.html"><a href="workflows.html"><i class="fa fa-check"></i><b>4</b> Workflows</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="workflows.html"><a href="workflows.html#iobr-workflow"><i class="fa fa-check"></i><b>4.1</b> IOBR Workflow</a></li>
+<li class="chapter" data-level="4.2" data-path="workflows.html"><a href="workflows.html#mutation-workflow"><i class="fa fa-check"></i><b>4.2</b> Mutation Workflow</a></li>
+<li class="chapter" data-level="4.3" data-path="workflows.html"><a href="workflows.html#signature-gene-workflow"><i class="fa fa-check"></i><b>4.3</b> Signature-Gene Workflow</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-preprocessing-and-benchmark-resources.html"><a href="data-preprocessing-and-benchmark-resources.html"><i class="fa fa-check"></i><b>5</b> Data preprocessing and benchmark resources</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="data-preprocessing-and-benchmark-resources.html"><a href="data-preprocessing-and-benchmark-resources.html#gse62254-data-preparation"><i class="fa fa-check"></i><b>5.1</b> GSE62254 data preparation</a></li>
+<li class="chapter" data-level="5.2" data-path="data-preprocessing-and-benchmark-resources.html"><a href="data-preprocessing-and-benchmark-resources.html#task-level-benchmark-preparation"><i class="fa fa-check"></i><b>5.2</b> Task-level benchmark preparation</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">IOBRportal Book</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-preprocessing-and-benchmark-resources" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">5</span> Data preprocessing and benchmark resources<a href="data-preprocessing-and-benchmark-resources.html#data-preprocessing-and-benchmark-resources" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>This chapter provides the scripts and input/output resources used to prepare the GSE62254 expression and survival data and to support the task-level comparison between local IOBR and IOBRportal.</p>
+<div id="gse62254-data-preparation" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> GSE62254 data preparation<a href="data-preprocessing-and-benchmark-resources.html#gse62254-data-preparation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="data-sources" class="section level3 hasAnchor" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> Data sources<a href="data-preprocessing-and-benchmark-resources.html#data-sources" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The GSE62254 cohort contains microarray expression profiles from 300 gastric tumor samples generated using the Affymetrix Human Genome U133 Plus 2.0 Array (GPL570).</p>
+<ul>
+<li><strong>Expression data:</strong> Open the <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE62254">GSE62254 GEO accession page</a>, locate <strong>Series Matrix File(s)</strong> under <strong>Download family</strong>, and download <code>GSE62254_series_matrix.txt.gz</code>.</li>
+<li><strong>Clinical and survival data:</strong> Download the supplementary spreadsheet <a href="https://static-content.springer.com/esm/art%3A10.1038%2Fnm.3850/MediaObjects/41591_2015_BFnm3850_MOESM34_ESM.xls"><code>41591_2015_BFnm3850_MOESM34_ESM.xls</code></a> associated with the <a href="https://www.nature.com/articles/nm.3850">original publication</a>.</li>
+<li><strong>Processed survival data:</strong> <a href="data/GSE62254_survival_data.xlsx">Download <code>GSE62254_survival_data.xlsx</code></a>.</li>
+</ul>
+<p>Place the downloaded Series Matrix file and original supplementary spreadsheet in the working directory before running the following code.</p>
+</div>
+<div id="expression-matrix-preparation" class="section level3 hasAnchor" number="5.1.2">
+<h3><span class="header-section-number">5.1.2</span> Expression-matrix preparation<a href="data-preprocessing-and-benchmark-resources.html#expression-matrix-preparation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="data-preprocessing-and-benchmark-resources.html#cb61-1" tabindex="-1"></a><span class="fu">library</span>(GEOquery)</span>
+<span id="cb61-2"><a href="data-preprocessing-and-benchmark-resources.html#cb61-2" tabindex="-1"></a></span>
+<span id="cb61-3"><a href="data-preprocessing-and-benchmark-resources.html#cb61-3" tabindex="-1"></a><span class="co"># Read the locally downloaded Series Matrix file</span></span>
+<span id="cb61-4"><a href="data-preprocessing-and-benchmark-resources.html#cb61-4" tabindex="-1"></a>gse62254 <span class="ot">&lt;-</span> <span class="fu">getGEO</span>(</span>
+<span id="cb61-5"><a href="data-preprocessing-and-benchmark-resources.html#cb61-5" tabindex="-1"></a>  <span class="at">filename =</span> <span class="st">&quot;GSE62254_series_matrix.txt.gz&quot;</span>,</span>
+<span id="cb61-6"><a href="data-preprocessing-and-benchmark-resources.html#cb61-6" tabindex="-1"></a>  <span class="at">getGPL   =</span> <span class="cn">FALSE</span></span>
+<span id="cb61-7"><a href="data-preprocessing-and-benchmark-resources.html#cb61-7" tabindex="-1"></a>)</span>
+<span id="cb61-8"><a href="data-preprocessing-and-benchmark-resources.html#cb61-8" tabindex="-1"></a></span>
+<span id="cb61-9"><a href="data-preprocessing-and-benchmark-resources.html#cb61-9" tabindex="-1"></a><span class="co"># Extract the probe-level expression matrix</span></span>
+<span id="cb61-10"><a href="data-preprocessing-and-benchmark-resources.html#cb61-10" tabindex="-1"></a>eset_probe <span class="ot">&lt;-</span> Biobase<span class="sc">::</span><span class="fu">exprs</span>(gse62254)</span>
+<span id="cb61-11"><a href="data-preprocessing-and-benchmark-resources.html#cb61-11" tabindex="-1"></a></span>
+<span id="cb61-12"><a href="data-preprocessing-and-benchmark-resources.html#cb61-12" tabindex="-1"></a><span class="co"># Inspect the data</span></span>
+<span id="cb61-13"><a href="data-preprocessing-and-benchmark-resources.html#cb61-13" tabindex="-1"></a><span class="fu">dim</span>(eset_probe)</span>
+<span id="cb61-14"><a href="data-preprocessing-and-benchmark-resources.html#cb61-14" tabindex="-1"></a>eset_probe[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb61-15"><a href="data-preprocessing-and-benchmark-resources.html#cb61-15" tabindex="-1"></a></span>
+<span id="cb61-16"><a href="data-preprocessing-and-benchmark-resources.html#cb61-16" tabindex="-1"></a><span class="co"># Save the probe-level expression matrix</span></span>
+<span id="cb61-17"><a href="data-preprocessing-and-benchmark-resources.html#cb61-17" tabindex="-1"></a><span class="fu">write.csv</span>(</span>
+<span id="cb61-18"><a href="data-preprocessing-and-benchmark-resources.html#cb61-18" tabindex="-1"></a>  eset_probe,</span>
+<span id="cb61-19"><a href="data-preprocessing-and-benchmark-resources.html#cb61-19" tabindex="-1"></a>  <span class="at">file      =</span> <span class="st">&quot;GSE62254_probe_expression.csv&quot;</span>,</span>
+<span id="cb61-20"><a href="data-preprocessing-and-benchmark-resources.html#cb61-20" tabindex="-1"></a>  <span class="at">row.names =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb61-21"><a href="data-preprocessing-and-benchmark-resources.html#cb61-21" tabindex="-1"></a>  <span class="at">quote     =</span> <span class="cn">FALSE</span></span>
+<span id="cb61-22"><a href="data-preprocessing-and-benchmark-resources.html#cb61-22" tabindex="-1"></a>)</span></code></pre></div>
+<p>The resulting probe-level expression matrix can be uploaded to the <strong>Integrated Workflow</strong> in IOBRportal. Probe annotation, duplicated-gene handling, optional log transformation, and outlier detection can then be completed within the platform.</p>
+</div>
+<div id="clinical-and-survival-data-preparation" class="section level3 hasAnchor" number="5.1.3">
+<h3><span class="header-section-number">5.1.3</span> Clinical and survival-data preparation<a href="data-preprocessing-and-benchmark-resources.html#clinical-and-survival-data-preparation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="data-preprocessing-and-benchmark-resources.html#cb62-1" tabindex="-1"></a><span class="fu">library</span>(GEOquery)</span>
+<span id="cb62-2"><a href="data-preprocessing-and-benchmark-resources.html#cb62-2" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb62-3"><a href="data-preprocessing-and-benchmark-resources.html#cb62-3" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb62-4"><a href="data-preprocessing-and-benchmark-resources.html#cb62-4" tabindex="-1"></a><span class="fu">library</span>(writexl)</span>
+<span id="cb62-5"><a href="data-preprocessing-and-benchmark-resources.html#cb62-5" tabindex="-1"></a></span>
+<span id="cb62-6"><a href="data-preprocessing-and-benchmark-resources.html#cb62-6" tabindex="-1"></a><span class="co"># Read the locally downloaded Series Matrix file</span></span>
+<span id="cb62-7"><a href="data-preprocessing-and-benchmark-resources.html#cb62-7" tabindex="-1"></a>gse62254 <span class="ot">&lt;-</span> <span class="fu">getGEO</span>(</span>
+<span id="cb62-8"><a href="data-preprocessing-and-benchmark-resources.html#cb62-8" tabindex="-1"></a>  <span class="at">filename =</span> <span class="st">&quot;GSE62254_series_matrix.txt.gz&quot;</span>,</span>
+<span id="cb62-9"><a href="data-preprocessing-and-benchmark-resources.html#cb62-9" tabindex="-1"></a>  <span class="at">getGPL   =</span> <span class="cn">FALSE</span></span>
+<span id="cb62-10"><a href="data-preprocessing-and-benchmark-resources.html#cb62-10" tabindex="-1"></a>)</span>
+<span id="cb62-11"><a href="data-preprocessing-and-benchmark-resources.html#cb62-11" tabindex="-1"></a></span>
+<span id="cb62-12"><a href="data-preprocessing-and-benchmark-resources.html#cb62-12" tabindex="-1"></a><span class="co"># Extract sample phenotype information from GEO</span></span>
+<span id="cb62-13"><a href="data-preprocessing-and-benchmark-resources.html#cb62-13" tabindex="-1"></a>pheno <span class="ot">&lt;-</span> Biobase<span class="sc">::</span><span class="fu">pData</span>(gse62254)</span>
+<span id="cb62-14"><a href="data-preprocessing-and-benchmark-resources.html#cb62-14" tabindex="-1"></a></span>
+<span id="cb62-15"><a href="data-preprocessing-and-benchmark-resources.html#cb62-15" tabindex="-1"></a><span class="co"># Read the clinical and survival data from the original supplement</span></span>
+<span id="cb62-16"><a href="data-preprocessing-and-benchmark-resources.html#cb62-16" tabindex="-1"></a>clin <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;41591_2015_BFnm3850_MOESM34_ESM.xls&quot;</span>)</span>
+<span id="cb62-17"><a href="data-preprocessing-and-benchmark-resources.html#cb62-17" tabindex="-1"></a></span>
+<span id="cb62-18"><a href="data-preprocessing-and-benchmark-resources.html#cb62-18" tabindex="-1"></a><span class="fu">dim</span>(clin)</span>
+<span id="cb62-19"><a href="data-preprocessing-and-benchmark-resources.html#cb62-19" tabindex="-1"></a><span class="fu">names</span>(clin)</span>
+<span id="cb62-20"><a href="data-preprocessing-and-benchmark-resources.html#cb62-20" tabindex="-1"></a></span>
+<span id="cb62-21"><a href="data-preprocessing-and-benchmark-resources.html#cb62-21" tabindex="-1"></a><span class="co"># Rename the required columns</span></span>
+<span id="cb62-22"><a href="data-preprocessing-and-benchmark-resources.html#cb62-22" tabindex="-1"></a>column_map <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb62-23"><a href="data-preprocessing-and-benchmark-resources.html#cb62-23" tabindex="-1"></a>  <span class="st">&quot;Tumor ID&quot;</span> <span class="ot">=</span> <span class="st">&quot;Tumor_ID&quot;</span>,</span>
+<span id="cb62-24"><a href="data-preprocessing-and-benchmark-resources.html#cb62-24" tabindex="-1"></a>  <span class="st">&quot;Sample</span><span class="sc">\n</span><span class="st">Name&quot;</span> <span class="ot">=</span> <span class="st">&quot;Sample_Name&quot;</span>,</span>
+<span id="cb62-25"><a href="data-preprocessing-and-benchmark-resources.html#cb62-25" tabindex="-1"></a>  <span class="st">&quot;documented recurrence no=0  yes=1 unknown=2&quot;</span> <span class="ot">=</span> <span class="st">&quot;Recurrence&quot;</span>,</span>
+<span id="cb62-26"><a href="data-preprocessing-and-benchmark-resources.html#cb62-26" tabindex="-1"></a>  <span class="st">&quot;FU status0=alive without ds, 1=alive with recurren ds, 2=dead without ds, 3=dead d/t recurrent ds, 4=dead, unknown, 5= FU loss&quot;</span> <span class="ot">=</span> <span class="st">&quot;FU_status&quot;</span>,</span>
+<span id="cb62-27"><a href="data-preprocessing-and-benchmark-resources.html#cb62-27" tabindex="-1"></a>  <span class="st">&quot;DFS</span><span class="sc">\n</span><span class="st">(months)&quot;</span> <span class="ot">=</span> <span class="st">&quot;DFS_time&quot;</span>,</span>
+<span id="cb62-28"><a href="data-preprocessing-and-benchmark-resources.html#cb62-28" tabindex="-1"></a>  <span class="st">&quot;OS</span><span class="sc">\n</span><span class="st">(months)&quot;</span> <span class="ot">=</span> <span class="st">&quot;OS_time&quot;</span>,</span>
+<span id="cb62-29"><a href="data-preprocessing-and-benchmark-resources.html#cb62-29" tabindex="-1"></a>  <span class="st">&quot;Mol. Subtype: 0=MSS/TP53-, 1=MSS/TP53+, 2 = MSI, 3= EMT&quot;</span> <span class="ot">=</span> <span class="st">&quot;Subtype&quot;</span>,</span>
+<span id="cb62-30"><a href="data-preprocessing-and-benchmark-resources.html#cb62-30" tabindex="-1"></a>  <span class="st">&quot;EBV ISH</span><span class="sc">\n</span><span class="st">0: negative</span><span class="sc">\n</span><span class="st">1: positive</span><span class="sc">\n</span><span class="st">NA: Not available (no available tumor blocks)&quot;</span> <span class="ot">=</span> <span class="st">&quot;EBV_raw&quot;</span>,</span>
+<span id="cb62-31"><a href="data-preprocessing-and-benchmark-resources.html#cb62-31" tabindex="-1"></a>  <span class="st">&quot;WHO 1=w/d adeno</span><span class="sc">\n</span><span class="st">2=m/d adeno</span><span class="sc">\n</span><span class="st">3=p/d adeno</span><span class="sc">\n</span><span class="st">4=signet ring</span><span class="sc">\n</span><span class="st">5= mucinous</span><span class="sc">\n</span><span class="st">6=papillary adeno</span><span class="sc">\n</span><span class="st">7=adenosquamous</span><span class="sc">\n</span><span class="st">8=undifferentiated ca</span><span class="sc">\n</span><span class="st">9=hepatoid adenoca</span><span class="sc">\n</span><span class="st">10=tubular adenoca</span><span class="sc">\n</span><span class="st">11=others (text)&quot;</span> <span class="ot">=</span> <span class="st">&quot;WHO_raw&quot;</span>,</span>
+<span id="cb62-32"><a href="data-preprocessing-and-benchmark-resources.html#cb62-32" tabindex="-1"></a>  <span class="st">&quot;LAUREN 1=intestinal, 2=diffuse, 3=mixed&quot;</span> <span class="ot">=</span> <span class="st">&quot;Lauren_raw&quot;</span>,</span>
+<span id="cb62-33"><a href="data-preprocessing-and-benchmark-resources.html#cb62-33" tabindex="-1"></a>  <span class="st">&quot;Perineural Invasion(PNI) 0=(-), 1=(+), blank (not reported)&quot;</span> <span class="ot">=</span> <span class="st">&quot;PNI_raw&quot;</span></span>
+<span id="cb62-34"><a href="data-preprocessing-and-benchmark-resources.html#cb62-34" tabindex="-1"></a>)</span>
+<span id="cb62-35"><a href="data-preprocessing-and-benchmark-resources.html#cb62-35" tabindex="-1"></a></span>
+<span id="cb62-36"><a href="data-preprocessing-and-benchmark-resources.html#cb62-36" tabindex="-1"></a>column_index <span class="ot">&lt;-</span> <span class="fu">match</span>(<span class="fu">names</span>(column_map), <span class="fu">names</span>(clin))</span>
+<span id="cb62-37"><a href="data-preprocessing-and-benchmark-resources.html#cb62-37" tabindex="-1"></a>matched_columns <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">is.na</span>(column_index)</span>
+<span id="cb62-38"><a href="data-preprocessing-and-benchmark-resources.html#cb62-38" tabindex="-1"></a><span class="fu">names</span>(clin)[column_index[matched_columns]] <span class="ot">&lt;-</span> <span class="fu">unname</span>(column_map[matched_columns])</span>
+<span id="cb62-39"><a href="data-preprocessing-and-benchmark-resources.html#cb62-39" tabindex="-1"></a></span>
+<span id="cb62-40"><a href="data-preprocessing-and-benchmark-resources.html#cb62-40" tabindex="-1"></a><span class="co"># Prepare sample identifiers</span></span>
+<span id="cb62-41"><a href="data-preprocessing-and-benchmark-resources.html#cb62-41" tabindex="-1"></a>pheno<span class="sc">$</span>sample_id <span class="ot">&lt;-</span> <span class="fu">rownames</span>(pheno)</span>
+<span id="cb62-42"><a href="data-preprocessing-and-benchmark-resources.html#cb62-42" tabindex="-1"></a>pheno<span class="sc">$</span>Tumor_ID <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">&quot;[^0-9]&quot;</span>, <span class="st">&quot;&quot;</span>, pheno<span class="sc">$</span>title))</span>
+<span id="cb62-43"><a href="data-preprocessing-and-benchmark-resources.html#cb62-43" tabindex="-1"></a>clin<span class="sc">$</span>Tumor_ID <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(clin<span class="sc">$</span>Tumor_ID)</span>
+<span id="cb62-44"><a href="data-preprocessing-and-benchmark-resources.html#cb62-44" tabindex="-1"></a></span>
+<span id="cb62-45"><a href="data-preprocessing-and-benchmark-resources.html#cb62-45" tabindex="-1"></a><span class="co"># Match GEO samples with the clinical supplement</span></span>
+<span id="cb62-46"><a href="data-preprocessing-and-benchmark-resources.html#cb62-46" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">merge</span>(</span>
+<span id="cb62-47"><a href="data-preprocessing-and-benchmark-resources.html#cb62-47" tabindex="-1"></a>  pheno,</span>
+<span id="cb62-48"><a href="data-preprocessing-and-benchmark-resources.html#cb62-48" tabindex="-1"></a>  clin,</span>
+<span id="cb62-49"><a href="data-preprocessing-and-benchmark-resources.html#cb62-49" tabindex="-1"></a>  <span class="at">by     =</span> <span class="st">&quot;Tumor_ID&quot;</span>,</span>
+<span id="cb62-50"><a href="data-preprocessing-and-benchmark-resources.html#cb62-50" tabindex="-1"></a>  <span class="at">all.x  =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb62-51"><a href="data-preprocessing-and-benchmark-resources.html#cb62-51" tabindex="-1"></a>  <span class="at">sort   =</span> <span class="cn">FALSE</span></span>
+<span id="cb62-52"><a href="data-preprocessing-and-benchmark-resources.html#cb62-52" tabindex="-1"></a>)</span>
+<span id="cb62-53"><a href="data-preprocessing-and-benchmark-resources.html#cb62-53" tabindex="-1"></a></span>
+<span id="cb62-54"><a href="data-preprocessing-and-benchmark-resources.html#cb62-54" tabindex="-1"></a>dat <span class="ot">&lt;-</span> dat[<span class="fu">match</span>(pheno<span class="sc">$</span>Tumor_ID, dat<span class="sc">$</span>Tumor_ID), ]</span>
+<span id="cb62-55"><a href="data-preprocessing-and-benchmark-resources.html#cb62-55" tabindex="-1"></a><span class="fu">rownames</span>(dat) <span class="ot">&lt;-</span> dat<span class="sc">$</span>sample_id</span>
+<span id="cb62-56"><a href="data-preprocessing-and-benchmark-resources.html#cb62-56" tabindex="-1"></a></span>
+<span id="cb62-57"><a href="data-preprocessing-and-benchmark-resources.html#cb62-57" tabindex="-1"></a><span class="co"># Select the variables used in downstream analyses</span></span>
+<span id="cb62-58"><a href="data-preprocessing-and-benchmark-resources.html#cb62-58" tabindex="-1"></a>surv_df <span class="ot">&lt;-</span> dat[, <span class="fu">c</span>(</span>
+<span id="cb62-59"><a href="data-preprocessing-and-benchmark-resources.html#cb62-59" tabindex="-1"></a>  <span class="st">&quot;sex&quot;</span>, <span class="st">&quot;Recurrence&quot;</span>, <span class="st">&quot;pStage&quot;</span>, <span class="st">&quot;FU_status&quot;</span>, <span class="st">&quot;DFS_time&quot;</span>, <span class="st">&quot;OS_time&quot;</span>,</span>
+<span id="cb62-60"><a href="data-preprocessing-and-benchmark-resources.html#cb62-60" tabindex="-1"></a>  <span class="st">&quot;Subtype&quot;</span>, <span class="st">&quot;WHO_raw&quot;</span>, <span class="st">&quot;EBV_raw&quot;</span>, <span class="st">&quot;Lauren_raw&quot;</span>, <span class="st">&quot;PNI_raw&quot;</span></span>
+<span id="cb62-61"><a href="data-preprocessing-and-benchmark-resources.html#cb62-61" tabindex="-1"></a>)]</span>
+<span id="cb62-62"><a href="data-preprocessing-and-benchmark-resources.html#cb62-62" tabindex="-1"></a></span>
+<span id="cb62-63"><a href="data-preprocessing-and-benchmark-resources.html#cb62-63" tabindex="-1"></a><span class="co"># Convert variable types</span></span>
+<span id="cb62-64"><a href="data-preprocessing-and-benchmark-resources.html#cb62-64" tabindex="-1"></a>surv_df<span class="sc">$</span>sex <span class="ot">&lt;-</span> <span class="fu">as.character</span>(surv_df<span class="sc">$</span>sex)</span>
+<span id="cb62-65"><a href="data-preprocessing-and-benchmark-resources.html#cb62-65" tabindex="-1"></a>surv_df<span class="sc">$</span>pStage <span class="ot">&lt;-</span> <span class="fu">as.character</span>(surv_df<span class="sc">$</span>pStage)</span>
+<span id="cb62-66"><a href="data-preprocessing-and-benchmark-resources.html#cb62-66" tabindex="-1"></a>surv_df<span class="sc">$</span>pStage[surv_df<span class="sc">$</span>pStage <span class="sc">==</span> <span class="st">&quot;①II/ ②I/ ③I&quot;</span>] <span class="ot">&lt;-</span> <span class="st">&quot;II&quot;</span></span>
+<span id="cb62-67"><a href="data-preprocessing-and-benchmark-resources.html#cb62-67" tabindex="-1"></a>surv_df<span class="sc">$</span>pStage[surv_df<span class="sc">$</span>pStage <span class="sc">==</span> <span class="st">&quot;①III/ ②II&quot;</span>] <span class="ot">&lt;-</span> <span class="st">&quot;III&quot;</span></span>
+<span id="cb62-68"><a href="data-preprocessing-and-benchmark-resources.html#cb62-68" tabindex="-1"></a></span>
+<span id="cb62-69"><a href="data-preprocessing-and-benchmark-resources.html#cb62-69" tabindex="-1"></a>numeric_variables <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb62-70"><a href="data-preprocessing-and-benchmark-resources.html#cb62-70" tabindex="-1"></a>  <span class="st">&quot;Recurrence&quot;</span>, <span class="st">&quot;FU_status&quot;</span>, <span class="st">&quot;DFS_time&quot;</span>, <span class="st">&quot;OS_time&quot;</span>,</span>
+<span id="cb62-71"><a href="data-preprocessing-and-benchmark-resources.html#cb62-71" tabindex="-1"></a>  <span class="st">&quot;Subtype&quot;</span>, <span class="st">&quot;WHO_raw&quot;</span>, <span class="st">&quot;EBV_raw&quot;</span>, <span class="st">&quot;Lauren_raw&quot;</span>, <span class="st">&quot;PNI_raw&quot;</span></span>
+<span id="cb62-72"><a href="data-preprocessing-and-benchmark-resources.html#cb62-72" tabindex="-1"></a>)</span>
+<span id="cb62-73"><a href="data-preprocessing-and-benchmark-resources.html#cb62-73" tabindex="-1"></a></span>
+<span id="cb62-74"><a href="data-preprocessing-and-benchmark-resources.html#cb62-74" tabindex="-1"></a>surv_df[numeric_variables] <span class="ot">&lt;-</span> <span class="fu">lapply</span>(</span>
+<span id="cb62-75"><a href="data-preprocessing-and-benchmark-resources.html#cb62-75" tabindex="-1"></a>  surv_df[numeric_variables],</span>
+<span id="cb62-76"><a href="data-preprocessing-and-benchmark-resources.html#cb62-76" tabindex="-1"></a>  as.numeric</span>
+<span id="cb62-77"><a href="data-preprocessing-and-benchmark-resources.html#cb62-77" tabindex="-1"></a>)</span>
+<span id="cb62-78"><a href="data-preprocessing-and-benchmark-resources.html#cb62-78" tabindex="-1"></a></span>
+<span id="cb62-79"><a href="data-preprocessing-and-benchmark-resources.html#cb62-79" tabindex="-1"></a><span class="co"># Recode EBV status</span></span>
+<span id="cb62-80"><a href="data-preprocessing-and-benchmark-resources.html#cb62-80" tabindex="-1"></a>surv_df<span class="sc">$</span>EBV <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(</span>
+<span id="cb62-81"><a href="data-preprocessing-and-benchmark-resources.html#cb62-81" tabindex="-1"></a>  surv_df<span class="sc">$</span>EBV_raw <span class="sc">==</span> <span class="dv">1</span>,</span>
+<span id="cb62-82"><a href="data-preprocessing-and-benchmark-resources.html#cb62-82" tabindex="-1"></a>  <span class="st">&quot;positive&quot;</span>,</span>
+<span id="cb62-83"><a href="data-preprocessing-and-benchmark-resources.html#cb62-83" tabindex="-1"></a>  <span class="fu">ifelse</span>(surv_df<span class="sc">$</span>EBV_raw <span class="sc">==</span> <span class="dv">0</span>, <span class="st">&quot;negative&quot;</span>, <span class="cn">NA</span>)</span>
+<span id="cb62-84"><a href="data-preprocessing-and-benchmark-resources.html#cb62-84" tabindex="-1"></a>)</span>
+<span id="cb62-85"><a href="data-preprocessing-and-benchmark-resources.html#cb62-85" tabindex="-1"></a></span>
+<span id="cb62-86"><a href="data-preprocessing-and-benchmark-resources.html#cb62-86" tabindex="-1"></a><span class="co"># Recode WHO histological type</span></span>
+<span id="cb62-87"><a href="data-preprocessing-and-benchmark-resources.html#cb62-87" tabindex="-1"></a>surv_df<span class="sc">$</span>WHO <span class="ot">&lt;-</span> <span class="fu">case_when</span>(</span>
+<span id="cb62-88"><a href="data-preprocessing-and-benchmark-resources.html#cb62-88" tabindex="-1"></a>  surv_df<span class="sc">$</span>WHO_raw <span class="sc">==</span> <span class="dv">1</span>  <span class="sc">~</span> <span class="st">&quot;w/d adeno&quot;</span>,</span>
+<span id="cb62-89"><a href="data-preprocessing-and-benchmark-resources.html#cb62-89" tabindex="-1"></a>  surv_df<span class="sc">$</span>WHO_raw <span class="sc">==</span> <span class="dv">2</span>  <span class="sc">~</span> <span class="st">&quot;m/d adeno&quot;</span>,</span>
+<span id="cb62-90"><a href="data-preprocessing-and-benchmark-resources.html#cb62-90" tabindex="-1"></a>  surv_df<span class="sc">$</span>WHO_raw <span class="sc">==</span> <span class="dv">3</span>  <span class="sc">~</span> <span class="st">&quot;p/d adeno&quot;</span>,</span>
+<span id="cb62-91"><a href="data-preprocessing-and-benchmark-resources.html#cb62-91" tabindex="-1"></a>  surv_df<span class="sc">$</span>WHO_raw <span class="sc">==</span> <span class="dv">4</span>  <span class="sc">~</span> <span class="st">&quot;signet ring&quot;</span>,</span>
+<span id="cb62-92"><a href="data-preprocessing-and-benchmark-resources.html#cb62-92" tabindex="-1"></a>  surv_df<span class="sc">$</span>WHO_raw <span class="sc">==</span> <span class="dv">5</span>  <span class="sc">~</span> <span class="st">&quot;mucinous&quot;</span>,</span>
+<span id="cb62-93"><a href="data-preprocessing-and-benchmark-resources.html#cb62-93" tabindex="-1"></a>  surv_df<span class="sc">$</span>WHO_raw <span class="sc">==</span> <span class="dv">6</span>  <span class="sc">~</span> <span class="st">&quot;papillary adeno&quot;</span>,</span>
+<span id="cb62-94"><a href="data-preprocessing-and-benchmark-resources.html#cb62-94" tabindex="-1"></a>  surv_df<span class="sc">$</span>WHO_raw <span class="sc">==</span> <span class="dv">7</span>  <span class="sc">~</span> <span class="st">&quot;adenosquamous&quot;</span>,</span>
+<span id="cb62-95"><a href="data-preprocessing-and-benchmark-resources.html#cb62-95" tabindex="-1"></a>  surv_df<span class="sc">$</span>WHO_raw <span class="sc">==</span> <span class="dv">8</span>  <span class="sc">~</span> <span class="st">&quot;undifferentiated ca&quot;</span>,</span>
+<span id="cb62-96"><a href="data-preprocessing-and-benchmark-resources.html#cb62-96" tabindex="-1"></a>  surv_df<span class="sc">$</span>WHO_raw <span class="sc">==</span> <span class="dv">9</span>  <span class="sc">~</span> <span class="st">&quot;hepatoid adenoca&quot;</span>,</span>
+<span id="cb62-97"><a href="data-preprocessing-and-benchmark-resources.html#cb62-97" tabindex="-1"></a>  surv_df<span class="sc">$</span>WHO_raw <span class="sc">==</span> <span class="dv">10</span> <span class="sc">~</span> <span class="st">&quot;tubular adenoca&quot;</span>,</span>
+<span id="cb62-98"><a href="data-preprocessing-and-benchmark-resources.html#cb62-98" tabindex="-1"></a>  surv_df<span class="sc">$</span>WHO_raw <span class="sc">==</span> <span class="dv">11</span> <span class="sc">~</span> <span class="st">&quot;others&quot;</span>,</span>
+<span id="cb62-99"><a href="data-preprocessing-and-benchmark-resources.html#cb62-99" tabindex="-1"></a>  <span class="cn">TRUE</span> <span class="sc">~</span> <span class="cn">NA_character_</span></span>
+<span id="cb62-100"><a href="data-preprocessing-and-benchmark-resources.html#cb62-100" tabindex="-1"></a>)</span>
+<span id="cb62-101"><a href="data-preprocessing-and-benchmark-resources.html#cb62-101" tabindex="-1"></a></span>
+<span id="cb62-102"><a href="data-preprocessing-and-benchmark-resources.html#cb62-102" tabindex="-1"></a><span class="co"># Recode Lauren classification</span></span>
+<span id="cb62-103"><a href="data-preprocessing-and-benchmark-resources.html#cb62-103" tabindex="-1"></a>surv_df<span class="sc">$</span>Lauren <span class="ot">&lt;-</span> <span class="fu">case_when</span>(</span>
+<span id="cb62-104"><a href="data-preprocessing-and-benchmark-resources.html#cb62-104" tabindex="-1"></a>  surv_df<span class="sc">$</span>Lauren_raw <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="st">&quot;intestinal&quot;</span>,</span>
+<span id="cb62-105"><a href="data-preprocessing-and-benchmark-resources.html#cb62-105" tabindex="-1"></a>  surv_df<span class="sc">$</span>Lauren_raw <span class="sc">==</span> <span class="dv">2</span> <span class="sc">~</span> <span class="st">&quot;diffuse&quot;</span>,</span>
+<span id="cb62-106"><a href="data-preprocessing-and-benchmark-resources.html#cb62-106" tabindex="-1"></a>  surv_df<span class="sc">$</span>Lauren_raw <span class="sc">==</span> <span class="dv">3</span> <span class="sc">~</span> <span class="st">&quot;mixed&quot;</span>,</span>
+<span id="cb62-107"><a href="data-preprocessing-and-benchmark-resources.html#cb62-107" tabindex="-1"></a>  <span class="cn">TRUE</span> <span class="sc">~</span> <span class="cn">NA_character_</span></span>
+<span id="cb62-108"><a href="data-preprocessing-and-benchmark-resources.html#cb62-108" tabindex="-1"></a>)</span>
+<span id="cb62-109"><a href="data-preprocessing-and-benchmark-resources.html#cb62-109" tabindex="-1"></a></span>
+<span id="cb62-110"><a href="data-preprocessing-and-benchmark-resources.html#cb62-110" tabindex="-1"></a><span class="co"># Recode perineural invasion status</span></span>
+<span id="cb62-111"><a href="data-preprocessing-and-benchmark-resources.html#cb62-111" tabindex="-1"></a>surv_df<span class="sc">$</span>PNI <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(</span>
+<span id="cb62-112"><a href="data-preprocessing-and-benchmark-resources.html#cb62-112" tabindex="-1"></a>  surv_df<span class="sc">$</span>PNI_raw <span class="sc">==</span> <span class="dv">1</span>,</span>
+<span id="cb62-113"><a href="data-preprocessing-and-benchmark-resources.html#cb62-113" tabindex="-1"></a>  <span class="st">&quot;positive&quot;</span>,</span>
+<span id="cb62-114"><a href="data-preprocessing-and-benchmark-resources.html#cb62-114" tabindex="-1"></a>  <span class="fu">ifelse</span>(surv_df<span class="sc">$</span>PNI_raw <span class="sc">==</span> <span class="dv">0</span>, <span class="st">&quot;negative&quot;</span>, <span class="cn">NA</span>)</span>
+<span id="cb62-115"><a href="data-preprocessing-and-benchmark-resources.html#cb62-115" tabindex="-1"></a>)</span>
+<span id="cb62-116"><a href="data-preprocessing-and-benchmark-resources.html#cb62-116" tabindex="-1"></a></span>
+<span id="cb62-117"><a href="data-preprocessing-and-benchmark-resources.html#cb62-117" tabindex="-1"></a><span class="co"># Create survival-event variables</span></span>
+<span id="cb62-118"><a href="data-preprocessing-and-benchmark-resources.html#cb62-118" tabindex="-1"></a>surv_df<span class="sc">$</span>OS_status <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(</span>
+<span id="cb62-119"><a href="data-preprocessing-and-benchmark-resources.html#cb62-119" tabindex="-1"></a>  surv_df<span class="sc">$</span>FU_status <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>),</span>
+<span id="cb62-120"><a href="data-preprocessing-and-benchmark-resources.html#cb62-120" tabindex="-1"></a>  <span class="dv">1</span>,</span>
+<span id="cb62-121"><a href="data-preprocessing-and-benchmark-resources.html#cb62-121" tabindex="-1"></a>  <span class="fu">ifelse</span>(surv_df<span class="sc">$</span>FU_status <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">5</span>), <span class="dv">0</span>, <span class="cn">NA</span>)</span>
+<span id="cb62-122"><a href="data-preprocessing-and-benchmark-resources.html#cb62-122" tabindex="-1"></a>)</span>
+<span id="cb62-123"><a href="data-preprocessing-and-benchmark-resources.html#cb62-123" tabindex="-1"></a></span>
+<span id="cb62-124"><a href="data-preprocessing-and-benchmark-resources.html#cb62-124" tabindex="-1"></a>surv_df<span class="sc">$</span>DFS_status <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(</span>
+<span id="cb62-125"><a href="data-preprocessing-and-benchmark-resources.html#cb62-125" tabindex="-1"></a>  surv_df<span class="sc">$</span>Recurrence <span class="sc">==</span> <span class="dv">1</span>,</span>
+<span id="cb62-126"><a href="data-preprocessing-and-benchmark-resources.html#cb62-126" tabindex="-1"></a>  <span class="dv">1</span>,</span>
+<span id="cb62-127"><a href="data-preprocessing-and-benchmark-resources.html#cb62-127" tabindex="-1"></a>  <span class="fu">ifelse</span>(surv_df<span class="sc">$</span>Recurrence <span class="sc">==</span> <span class="dv">0</span>, <span class="dv">0</span>, <span class="cn">NA</span>)</span>
+<span id="cb62-128"><a href="data-preprocessing-and-benchmark-resources.html#cb62-128" tabindex="-1"></a>)</span>
+<span id="cb62-129"><a href="data-preprocessing-and-benchmark-resources.html#cb62-129" tabindex="-1"></a></span>
+<span id="cb62-130"><a href="data-preprocessing-and-benchmark-resources.html#cb62-130" tabindex="-1"></a><span class="co"># Recode molecular subtypes</span></span>
+<span id="cb62-131"><a href="data-preprocessing-and-benchmark-resources.html#cb62-131" tabindex="-1"></a>subtype_labels <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;MSS/TP53-&quot;</span>, <span class="st">&quot;MSS/TP53+&quot;</span>, <span class="st">&quot;MSI&quot;</span>, <span class="st">&quot;EMT&quot;</span>)</span>
+<span id="cb62-132"><a href="data-preprocessing-and-benchmark-resources.html#cb62-132" tabindex="-1"></a>surv_df<span class="sc">$</span>Subtype <span class="ot">&lt;-</span> subtype_labels[surv_df<span class="sc">$</span>Subtype <span class="sc">+</span> <span class="dv">1</span>]</span>
+<span id="cb62-133"><a href="data-preprocessing-and-benchmark-resources.html#cb62-133" tabindex="-1"></a></span>
+<span id="cb62-134"><a href="data-preprocessing-and-benchmark-resources.html#cb62-134" tabindex="-1"></a><span class="co"># Prepare the final output table</span></span>
+<span id="cb62-135"><a href="data-preprocessing-and-benchmark-resources.html#cb62-135" tabindex="-1"></a>surv_output <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb62-136"><a href="data-preprocessing-and-benchmark-resources.html#cb62-136" tabindex="-1"></a>  <span class="at">ID =</span> <span class="fu">rownames</span>(surv_df),</span>
+<span id="cb62-137"><a href="data-preprocessing-and-benchmark-resources.html#cb62-137" tabindex="-1"></a>  surv_df[, <span class="fu">c</span>(</span>
+<span id="cb62-138"><a href="data-preprocessing-and-benchmark-resources.html#cb62-138" tabindex="-1"></a>    <span class="st">&quot;sex&quot;</span>, <span class="st">&quot;pStage&quot;</span>, <span class="st">&quot;Subtype&quot;</span>, <span class="st">&quot;WHO&quot;</span>, <span class="st">&quot;EBV&quot;</span>, <span class="st">&quot;Lauren&quot;</span>, <span class="st">&quot;PNI&quot;</span>,</span>
+<span id="cb62-139"><a href="data-preprocessing-and-benchmark-resources.html#cb62-139" tabindex="-1"></a>    <span class="st">&quot;OS_time&quot;</span>, <span class="st">&quot;DFS_time&quot;</span>, <span class="st">&quot;OS_status&quot;</span>, <span class="st">&quot;DFS_status&quot;</span></span>
+<span id="cb62-140"><a href="data-preprocessing-and-benchmark-resources.html#cb62-140" tabindex="-1"></a>  )],</span>
+<span id="cb62-141"><a href="data-preprocessing-and-benchmark-resources.html#cb62-141" tabindex="-1"></a>  <span class="at">row.names =</span> <span class="cn">NULL</span>,</span>
+<span id="cb62-142"><a href="data-preprocessing-and-benchmark-resources.html#cb62-142" tabindex="-1"></a>  <span class="at">check.names =</span> <span class="cn">FALSE</span></span>
+<span id="cb62-143"><a href="data-preprocessing-and-benchmark-resources.html#cb62-143" tabindex="-1"></a>)</span>
+<span id="cb62-144"><a href="data-preprocessing-and-benchmark-resources.html#cb62-144" tabindex="-1"></a></span>
+<span id="cb62-145"><a href="data-preprocessing-and-benchmark-resources.html#cb62-145" tabindex="-1"></a><span class="co"># Save the processed survival table as an Excel file</span></span>
+<span id="cb62-146"><a href="data-preprocessing-and-benchmark-resources.html#cb62-146" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">dir.exists</span>(<span class="st">&quot;data&quot;</span>)) {</span>
+<span id="cb62-147"><a href="data-preprocessing-and-benchmark-resources.html#cb62-147" tabindex="-1"></a>  <span class="fu">dir.create</span>(<span class="st">&quot;data&quot;</span>, <span class="at">recursive =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb62-148"><a href="data-preprocessing-and-benchmark-resources.html#cb62-148" tabindex="-1"></a>}</span>
+<span id="cb62-149"><a href="data-preprocessing-and-benchmark-resources.html#cb62-149" tabindex="-1"></a></span>
+<span id="cb62-150"><a href="data-preprocessing-and-benchmark-resources.html#cb62-150" tabindex="-1"></a><span class="fu">write_xlsx</span>(</span>
+<span id="cb62-151"><a href="data-preprocessing-and-benchmark-resources.html#cb62-151" tabindex="-1"></a>  surv_output,</span>
+<span id="cb62-152"><a href="data-preprocessing-and-benchmark-resources.html#cb62-152" tabindex="-1"></a>  <span class="at">path =</span> <span class="st">&quot;data/GSE62254_survival_data.xlsx&quot;</span></span>
+<span id="cb62-153"><a href="data-preprocessing-and-benchmark-resources.html#cb62-153" tabindex="-1"></a>)</span></code></pre></div>
+<p>The <code>ID</code> column contains the GEO sample identifiers and is used to match the survival table with the expression matrix in IOBRportal.</p>
+</div>
+</div>
+<div id="task-level-benchmark-preparation" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Task-level benchmark preparation<a href="data-preprocessing-and-benchmark-resources.html#task-level-benchmark-preparation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="benchmark-design" class="section level3 hasAnchor" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> Benchmark design<a href="data-preprocessing-and-benchmark-resources.html#benchmark-design" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This example illustrates the additional preparation required to complete the GSE62254 analysis using local IOBR. Users needed to consult the relevant documentation, install and configure R and the required dependencies, write and refine the analysis code, organize successive analytical steps, and manually manage intermediate results. These tasks required programming experience and additional preparation time before the analysis could be completed.</p>
+<p>In contrast, IOBRportal organized the same procedure—including expression preprocessing, GPL570 probe annotation, outlier detection, ssGSEA-based TME signature scoring, data integration, and TMEscore_plus survival analysis—into a guided workflow with automatic transfer of upstream results and direct result export.</p>
+<p>Because IOBRportal calls the same underlying IOBR functions, the comparison was designed to assess result consistency and workflow organization rather than differences in computational speed. The required input files are:</p>
+<ul>
+<li><code>GSE62254_probe_expression.csv</code>, generated using the expression-preparation code above</li>
+<li><a href="data/GSE62254_survival_data.xlsx"><code>GSE62254_survival_data.xlsx</code></a>, generated using the clinical-data preparation code above</li>
+</ul>
+</div>
+<div id="local-iobr-analysis" class="section level3 hasAnchor" number="5.2.2">
+<h3><span class="header-section-number">5.2.2</span> Local IOBR analysis<a href="data-preprocessing-and-benchmark-resources.html#local-iobr-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="data-preprocessing-and-benchmark-resources.html#cb63-1" tabindex="-1"></a><span class="co"># Install the required packages before the first run if necessary</span></span>
+<span id="cb63-2"><a href="data-preprocessing-and-benchmark-resources.html#cb63-2" tabindex="-1"></a><span class="co"># install.packages(c(&quot;IOBR&quot;, &quot;readxl&quot;, &quot;tibble&quot;), dependencies = TRUE)</span></span>
+<span id="cb63-3"><a href="data-preprocessing-and-benchmark-resources.html#cb63-3" tabindex="-1"></a></span>
+<span id="cb63-4"><a href="data-preprocessing-and-benchmark-resources.html#cb63-4" tabindex="-1"></a><span class="fu">library</span>(IOBR)</span>
+<span id="cb63-5"><a href="data-preprocessing-and-benchmark-resources.html#cb63-5" tabindex="-1"></a></span>
+<span id="cb63-6"><a href="data-preprocessing-and-benchmark-resources.html#cb63-6" tabindex="-1"></a><span class="co"># Read the probe-level expression matrix</span></span>
+<span id="cb63-7"><a href="data-preprocessing-and-benchmark-resources.html#cb63-7" tabindex="-1"></a>eset <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(</span>
+<span id="cb63-8"><a href="data-preprocessing-and-benchmark-resources.html#cb63-8" tabindex="-1"></a>  <span class="st">&quot;GSE62254_probe_expression.csv&quot;</span>,</span>
+<span id="cb63-9"><a href="data-preprocessing-and-benchmark-resources.html#cb63-9" tabindex="-1"></a>  <span class="at">row.names   =</span> <span class="dv">1</span>,</span>
+<span id="cb63-10"><a href="data-preprocessing-and-benchmark-resources.html#cb63-10" tabindex="-1"></a>  <span class="at">check.names =</span> <span class="cn">FALSE</span></span>
+<span id="cb63-11"><a href="data-preprocessing-and-benchmark-resources.html#cb63-11" tabindex="-1"></a>)</span>
+<span id="cb63-12"><a href="data-preprocessing-and-benchmark-resources.html#cb63-12" tabindex="-1"></a></span>
+<span id="cb63-13"><a href="data-preprocessing-and-benchmark-resources.html#cb63-13" tabindex="-1"></a>eset <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(eset)</span>
+<span id="cb63-14"><a href="data-preprocessing-and-benchmark-resources.html#cb63-14" tabindex="-1"></a></span>
+<span id="cb63-15"><a href="data-preprocessing-and-benchmark-resources.html#cb63-15" tabindex="-1"></a><span class="co"># Read the processed clinical and survival data</span></span>
+<span id="cb63-16"><a href="data-preprocessing-and-benchmark-resources.html#cb63-16" tabindex="-1"></a>pdata <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_excel</span>(</span>
+<span id="cb63-17"><a href="data-preprocessing-and-benchmark-resources.html#cb63-17" tabindex="-1"></a>  <span class="st">&quot;data/GSE62254_survival_data.xlsx&quot;</span></span>
+<span id="cb63-18"><a href="data-preprocessing-and-benchmark-resources.html#cb63-18" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb63-19"><a href="data-preprocessing-and-benchmark-resources.html#cb63-19" tabindex="-1"></a>  <span class="fu">as.data.frame</span>()</span>
+<span id="cb63-20"><a href="data-preprocessing-and-benchmark-resources.html#cb63-20" tabindex="-1"></a></span>
+<span id="cb63-21"><a href="data-preprocessing-and-benchmark-resources.html#cb63-21" tabindex="-1"></a><span class="fu">head</span>(pdata)</span>
+<span id="cb63-22"><a href="data-preprocessing-and-benchmark-resources.html#cb63-22" tabindex="-1"></a></span>
+<span id="cb63-23"><a href="data-preprocessing-and-benchmark-resources.html#cb63-23" tabindex="-1"></a><span class="co"># Determine whether log2 transformation is required</span></span>
+<span id="cb63-24"><a href="data-preprocessing-and-benchmark-resources.html#cb63-24" tabindex="-1"></a>eset <span class="ot">&lt;-</span> <span class="fu">log2eset</span>(eset)</span>
+<span id="cb63-25"><a href="data-preprocessing-and-benchmark-resources.html#cb63-25" tabindex="-1"></a></span>
+<span id="cb63-26"><a href="data-preprocessing-and-benchmark-resources.html#cb63-26" tabindex="-1"></a><span class="co"># Annotate GPL570 probes to gene symbols</span></span>
+<span id="cb63-27"><a href="data-preprocessing-and-benchmark-resources.html#cb63-27" tabindex="-1"></a>anno_hug133plus2 <span class="ot">&lt;-</span> <span class="fu">load_data</span>(<span class="st">&quot;anno_hug133plus2&quot;</span>)</span>
+<span id="cb63-28"><a href="data-preprocessing-and-benchmark-resources.html#cb63-28" tabindex="-1"></a></span>
+<span id="cb63-29"><a href="data-preprocessing-and-benchmark-resources.html#cb63-29" tabindex="-1"></a>eset <span class="ot">&lt;-</span> <span class="fu">anno_eset</span>(</span>
+<span id="cb63-30"><a href="data-preprocessing-and-benchmark-resources.html#cb63-30" tabindex="-1"></a>  <span class="at">eset       =</span> eset,</span>
+<span id="cb63-31"><a href="data-preprocessing-and-benchmark-resources.html#cb63-31" tabindex="-1"></a>  <span class="at">annotation =</span> anno_hug133plus2,</span>
+<span id="cb63-32"><a href="data-preprocessing-and-benchmark-resources.html#cb63-32" tabindex="-1"></a>  <span class="at">symbol     =</span> <span class="st">&quot;symbol&quot;</span>,</span>
+<span id="cb63-33"><a href="data-preprocessing-and-benchmark-resources.html#cb63-33" tabindex="-1"></a>  <span class="at">probe      =</span> <span class="st">&quot;probe_id&quot;</span>,</span>
+<span id="cb63-34"><a href="data-preprocessing-and-benchmark-resources.html#cb63-34" tabindex="-1"></a>  <span class="at">method     =</span> <span class="st">&quot;mean&quot;</span></span>
+<span id="cb63-35"><a href="data-preprocessing-and-benchmark-resources.html#cb63-35" tabindex="-1"></a>)</span>
+<span id="cb63-36"><a href="data-preprocessing-and-benchmark-resources.html#cb63-36" tabindex="-1"></a></span>
+<span id="cb63-37"><a href="data-preprocessing-and-benchmark-resources.html#cb63-37" tabindex="-1"></a><span class="co"># Identify potential outlier samples</span></span>
+<span id="cb63-38"><a href="data-preprocessing-and-benchmark-resources.html#cb63-38" tabindex="-1"></a>outlier_samples <span class="ot">&lt;-</span> <span class="fu">find_outlier_samples</span>(</span>
+<span id="cb63-39"><a href="data-preprocessing-and-benchmark-resources.html#cb63-39" tabindex="-1"></a>  <span class="at">eset      =</span> eset,</span>
+<span id="cb63-40"><a href="data-preprocessing-and-benchmark-resources.html#cb63-40" tabindex="-1"></a>  <span class="at">project   =</span> <span class="st">&quot;ACRG&quot;</span>,</span>
+<span id="cb63-41"><a href="data-preprocessing-and-benchmark-resources.html#cb63-41" tabindex="-1"></a>  <span class="at">show_plot =</span> <span class="cn">TRUE</span></span>
+<span id="cb63-42"><a href="data-preprocessing-and-benchmark-resources.html#cb63-42" tabindex="-1"></a>)</span>
+<span id="cb63-43"><a href="data-preprocessing-and-benchmark-resources.html#cb63-43" tabindex="-1"></a></span>
+<span id="cb63-44"><a href="data-preprocessing-and-benchmark-resources.html#cb63-44" tabindex="-1"></a>outlier_samples</span>
+<span id="cb63-45"><a href="data-preprocessing-and-benchmark-resources.html#cb63-45" tabindex="-1"></a></span>
+<span id="cb63-46"><a href="data-preprocessing-and-benchmark-resources.html#cb63-46" tabindex="-1"></a><span class="co"># Remove the identified outlier samples</span></span>
+<span id="cb63-47"><a href="data-preprocessing-and-benchmark-resources.html#cb63-47" tabindex="-1"></a>eset <span class="ot">&lt;-</span> eset[</span>
+<span id="cb63-48"><a href="data-preprocessing-and-benchmark-resources.html#cb63-48" tabindex="-1"></a>  ,</span>
+<span id="cb63-49"><a href="data-preprocessing-and-benchmark-resources.html#cb63-49" tabindex="-1"></a>  <span class="sc">!</span><span class="fu">colnames</span>(eset) <span class="sc">%in%</span> outlier_samples,</span>
+<span id="cb63-50"><a href="data-preprocessing-and-benchmark-resources.html#cb63-50" tabindex="-1"></a>  drop <span class="ot">=</span> <span class="cn">FALSE</span></span>
+<span id="cb63-51"><a href="data-preprocessing-and-benchmark-resources.html#cb63-51" tabindex="-1"></a>]</span>
+<span id="cb63-52"><a href="data-preprocessing-and-benchmark-resources.html#cb63-52" tabindex="-1"></a></span>
+<span id="cb63-53"><a href="data-preprocessing-and-benchmark-resources.html#cb63-53" tabindex="-1"></a><span class="fu">dim</span>(eset)</span>
+<span id="cb63-54"><a href="data-preprocessing-and-benchmark-resources.html#cb63-54" tabindex="-1"></a></span>
+<span id="cb63-55"><a href="data-preprocessing-and-benchmark-resources.html#cb63-55" tabindex="-1"></a><span class="co"># Calculate TME signature scores using ssGSEA</span></span>
+<span id="cb63-56"><a href="data-preprocessing-and-benchmark-resources.html#cb63-56" tabindex="-1"></a>signature <span class="ot">&lt;-</span> <span class="fu">load_data</span>(<span class="st">&quot;signature_tme&quot;</span>)</span>
+<span id="cb63-57"><a href="data-preprocessing-and-benchmark-resources.html#cb63-57" tabindex="-1"></a></span>
+<span id="cb63-58"><a href="data-preprocessing-and-benchmark-resources.html#cb63-58" tabindex="-1"></a>sig_tme <span class="ot">&lt;-</span> <span class="fu">calculate_sig_score</span>(</span>
+<span id="cb63-59"><a href="data-preprocessing-and-benchmark-resources.html#cb63-59" tabindex="-1"></a>  <span class="at">pdata           =</span> <span class="cn">NULL</span>,</span>
+<span id="cb63-60"><a href="data-preprocessing-and-benchmark-resources.html#cb63-60" tabindex="-1"></a>  <span class="at">eset            =</span> eset,</span>
+<span id="cb63-61"><a href="data-preprocessing-and-benchmark-resources.html#cb63-61" tabindex="-1"></a>  <span class="at">signature       =</span> signature,</span>
+<span id="cb63-62"><a href="data-preprocessing-and-benchmark-resources.html#cb63-62" tabindex="-1"></a>  <span class="at">method          =</span> <span class="st">&quot;ssgsea&quot;</span>,</span>
+<span id="cb63-63"><a href="data-preprocessing-and-benchmark-resources.html#cb63-63" tabindex="-1"></a>  <span class="at">mini_gene_count =</span> <span class="dv">3</span></span>
+<span id="cb63-64"><a href="data-preprocessing-and-benchmark-resources.html#cb63-64" tabindex="-1"></a>)</span>
+<span id="cb63-65"><a href="data-preprocessing-and-benchmark-resources.html#cb63-65" tabindex="-1"></a></span>
+<span id="cb63-66"><a href="data-preprocessing-and-benchmark-resources.html#cb63-66" tabindex="-1"></a><span class="co"># Convert the result to a signature-by-sample matrix</span></span>
+<span id="cb63-67"><a href="data-preprocessing-and-benchmark-resources.html#cb63-67" tabindex="-1"></a>sig_tme <span class="ot">&lt;-</span> <span class="fu">t</span>(</span>
+<span id="cb63-68"><a href="data-preprocessing-and-benchmark-resources.html#cb63-68" tabindex="-1"></a>  tibble<span class="sc">::</span><span class="fu">column_to_rownames</span>(</span>
+<span id="cb63-69"><a href="data-preprocessing-and-benchmark-resources.html#cb63-69" tabindex="-1"></a>    sig_tme,</span>
+<span id="cb63-70"><a href="data-preprocessing-and-benchmark-resources.html#cb63-70" tabindex="-1"></a>    <span class="at">var =</span> <span class="st">&quot;ID&quot;</span></span>
+<span id="cb63-71"><a href="data-preprocessing-and-benchmark-resources.html#cb63-71" tabindex="-1"></a>  )</span>
+<span id="cb63-72"><a href="data-preprocessing-and-benchmark-resources.html#cb63-72" tabindex="-1"></a>)</span>
+<span id="cb63-73"><a href="data-preprocessing-and-benchmark-resources.html#cb63-73" tabindex="-1"></a></span>
+<span id="cb63-74"><a href="data-preprocessing-and-benchmark-resources.html#cb63-74" tabindex="-1"></a><span class="co"># Confirm that TMEscore_plus is present</span></span>
+<span id="cb63-75"><a href="data-preprocessing-and-benchmark-resources.html#cb63-75" tabindex="-1"></a><span class="st">&quot;TMEscore_plus&quot;</span> <span class="sc">%in%</span> <span class="fu">rownames</span>(sig_tme)</span>
+<span id="cb63-76"><a href="data-preprocessing-and-benchmark-resources.html#cb63-76" tabindex="-1"></a></span>
+<span id="cb63-77"><a href="data-preprocessing-and-benchmark-resources.html#cb63-77" tabindex="-1"></a><span class="co"># Integrate signature scores with the survival data</span></span>
+<span id="cb63-78"><a href="data-preprocessing-and-benchmark-resources.html#cb63-78" tabindex="-1"></a>input_survival <span class="ot">&lt;-</span> <span class="fu">combine_pd_eset</span>(</span>
+<span id="cb63-79"><a href="data-preprocessing-and-benchmark-resources.html#cb63-79" tabindex="-1"></a>  <span class="at">eset                 =</span> sig_tme,</span>
+<span id="cb63-80"><a href="data-preprocessing-and-benchmark-resources.html#cb63-80" tabindex="-1"></a>  <span class="at">pdata                =</span> pdata,</span>
+<span id="cb63-81"><a href="data-preprocessing-and-benchmark-resources.html#cb63-81" tabindex="-1"></a>  <span class="at">id_pdata             =</span> <span class="st">&quot;ID&quot;</span>,</span>
+<span id="cb63-82"><a href="data-preprocessing-and-benchmark-resources.html#cb63-82" tabindex="-1"></a>  <span class="at">feature_manipulation =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb63-83"><a href="data-preprocessing-and-benchmark-resources.html#cb63-83" tabindex="-1"></a>  <span class="at">scale                =</span> <span class="cn">FALSE</span></span>
+<span id="cb63-84"><a href="data-preprocessing-and-benchmark-resources.html#cb63-84" tabindex="-1"></a>)</span>
+<span id="cb63-85"><a href="data-preprocessing-and-benchmark-resources.html#cb63-85" tabindex="-1"></a></span>
+<span id="cb63-86"><a href="data-preprocessing-and-benchmark-resources.html#cb63-86" tabindex="-1"></a><span class="fu">head</span>(input_survival)</span>
+<span id="cb63-87"><a href="data-preprocessing-and-benchmark-resources.html#cb63-87" tabindex="-1"></a></span>
+<span id="cb63-88"><a href="data-preprocessing-and-benchmark-resources.html#cb63-88" tabindex="-1"></a><span class="co"># Perform Kaplan-Meier analysis for TMEscore_plus</span></span>
+<span id="cb63-89"><a href="data-preprocessing-and-benchmark-resources.html#cb63-89" tabindex="-1"></a>km_result <span class="ot">&lt;-</span> <span class="fu">sig_surv_plot</span>(</span>
+<span id="cb63-90"><a href="data-preprocessing-and-benchmark-resources.html#cb63-90" tabindex="-1"></a>  <span class="at">input_pdata =</span> input_survival,</span>
+<span id="cb63-91"><a href="data-preprocessing-and-benchmark-resources.html#cb63-91" tabindex="-1"></a>  <span class="at">signature   =</span> <span class="st">&quot;TMEscore_plus&quot;</span>,</span>
+<span id="cb63-92"><a href="data-preprocessing-and-benchmark-resources.html#cb63-92" tabindex="-1"></a>  <span class="at">project     =</span> <span class="st">&quot;GSE62254&quot;</span>,</span>
+<span id="cb63-93"><a href="data-preprocessing-and-benchmark-resources.html#cb63-93" tabindex="-1"></a>  <span class="at">ID          =</span> <span class="st">&quot;ID&quot;</span>,</span>
+<span id="cb63-94"><a href="data-preprocessing-and-benchmark-resources.html#cb63-94" tabindex="-1"></a>  <span class="at">time        =</span> <span class="st">&quot;OS_time&quot;</span>,</span>
+<span id="cb63-95"><a href="data-preprocessing-and-benchmark-resources.html#cb63-95" tabindex="-1"></a>  <span class="at">status      =</span> <span class="st">&quot;OS_status&quot;</span>,</span>
+<span id="cb63-96"><a href="data-preprocessing-and-benchmark-resources.html#cb63-96" tabindex="-1"></a>  <span class="at">time_type   =</span> <span class="st">&quot;month&quot;</span>,</span>
+<span id="cb63-97"><a href="data-preprocessing-and-benchmark-resources.html#cb63-97" tabindex="-1"></a>  <span class="at">save_path   =</span> <span class="cn">NULL</span></span>
+<span id="cb63-98"><a href="data-preprocessing-and-benchmark-resources.html#cb63-98" tabindex="-1"></a>)</span>
+<span id="cb63-99"><a href="data-preprocessing-and-benchmark-resources.html#cb63-99" tabindex="-1"></a></span>
+<span id="cb63-100"><a href="data-preprocessing-and-benchmark-resources.html#cb63-100" tabindex="-1"></a>km_result<span class="sc">$</span>plots</span></code></pre></div>
+<p><strong>Output</strong></p>
+<p><img src="fig/TMEscore_surv_plot.png" /></p>
+</div>
+<div id="task-level-comparison" class="section level3 hasAnchor" number="5.2.3">
+<h3><span class="header-section-number">5.2.3</span> Task-level comparison<a href="data-preprocessing-and-benchmark-resources.html#task-level-comparison" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Task-level comparison of local IOBR and IOBRportal using the GSE62254 workflow</strong></p>
+<table>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Item</th>
+<th align="left">Local IOBR 2.0</th>
+<th align="left">IOBRportal</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Input data</td>
+<td align="left">GSE62254 expression and survival data</td>
+<td align="left">Same</td>
+</tr>
+<tr class="even">
+<td align="left">IOBR version and parameters</td>
+<td align="left">Identical</td>
+<td align="left">Identical</td>
+</tr>
+<tr class="odd">
+<td align="left">Analytical procedure</td>
+<td align="left">Annotation, outlier detection, ssGSEA scoring, data integration, and survival analysis</td>
+<td align="left">Same</td>
+</tr>
+<tr class="even">
+<td align="left">TMEscore_plus results</td>
+<td align="left">Consistent</td>
+<td align="left">Consistent</td>
+</tr>
+<tr class="odd">
+<td align="left">Survival-analysis results</td>
+<td align="left">Consistent</td>
+<td align="left">Consistent</td>
+</tr>
+<tr class="even">
+<td align="left">Computational time</td>
+<td align="left">Comparable</td>
+<td align="left">Comparable</td>
+</tr>
+<tr class="odd">
+<td align="left">R installation</td>
+<td align="left">Required</td>
+<td align="left">Not required</td>
+</tr>
+<tr class="even">
+<td align="left">Dependency installation</td>
+<td align="left">Required</td>
+<td align="left">Not required</td>
+</tr>
+<tr class="odd">
+<td align="left">Documentation consultation</td>
+<td align="left">Required for workflow construction</td>
+<td align="left">Integrated guidance provided</td>
+</tr>
+<tr class="even">
+<td align="left">User-written code</td>
+<td align="left">Required</td>
+<td align="left">Not required</td>
+</tr>
+<tr class="odd">
+<td align="left">Continuous workflow construction</td>
+<td align="left">Manually written and refined</td>
+<td align="left">Built-in guided workflow</td>
+</tr>
+<tr class="even">
+<td align="left">Intermediate-result coordination</td>
+<td align="left">Managed by the user in code</td>
+<td align="left">Automatically transferred</td>
+</tr>
+<tr class="odd">
+<td align="left">Intermediate-result export</td>
+<td align="left">Implemented by the user</td>
+<td align="left">Direct download</td>
+</tr>
+<tr class="even">
+<td align="left">Final-result export</td>
+<td align="left">Implemented by the user</td>
+<td align="left">Direct download</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="workflows.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/USERNAME/REPO/edit/BRANCH/04-case-data-preprocessing.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["IOBRportal_book.pdf", "IOBRportal_book.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+</body>
+
+</html>

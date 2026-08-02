@@ -231,20 +231,21 @@ The workflow returns a processed user dataset that can be reused across multiple
 
 ## Mutation Workflow
 
-User-uploaded workflow for mutation matrix construction and mutation-associated signature analysis.
+User-uploaded workflow for mutation matrix construction, mutation-associated signature analysis, and mutation-based survival analysis.
 
-This workflow starts from a mutation annotation file and converts it into a binary mutation matrix, then combines the generated mutation matrix with a user-provided signature matrix to identify phenotype- or signature-associated mutations.
+This workflow converts a user-uploaded mutation annotation file into a binary mutation matrix. The generated matrix can then be combined with a user-provided signature matrix to identify phenotype- or signature-associated mutations or with user-provided clinical data to evaluate mutation–survival associations.
 
 **Overview**
 
-The workflow is organized into two parts:
+The workflow is organized into three parts:
 
-- **Build Mutation Matrix**
-- **Find Mutations**
+- **Part 1 · Build Mutation Matrix**
+- **Part 2 · Find Mutations**
+- **Part 3 · Survival Analysis**
 
 **Data source**
 
-The workflow uses user-uploaded data and intermediate results generated inside the workflow.
+The workflow uses user-uploaded data and intermediate results generated within the workflow.
 
 Main inputs include:
 
@@ -252,15 +253,15 @@ Main inputs include:
   - Uploaded in **Build Mutation Matrix**
   - Typically a MAF-format mutation file
 
-Mutation Annotation Format (MAF) table
+Mutation Annotation Format (MAF) table:
 
 ```text
-                Hugo_Symbol   Tumor_Sample_Barcode   Variant_Classification
-1                 TP53          TCGA-3M-AB46          Missense_Mutation
-2                 ARID1A        TCGA-3M-AB46          Frame_Shift_Del
-3                 PIK3CA        TCGA-3M-AB47          Missense_Mutation
-4                 CDH1          TCGA-B7-5818          Nonsense_Mutation
-5                 FAT4          TCGA-B7-A5TI          Frame_Shift_Ins
+              Hugo_Symbol   Tumor_Sample_Barcode   Variant_Classification
+1             TP53          TCGA-3M-AB46           Missense_Mutation
+2             ARID1A        TCGA-3M-AB46           Frame_Shift_Del
+3             PIK3CA        TCGA-3M-AB47           Missense_Mutation
+4             CDH1          TCGA-B7-5818           Nonsense_Mutation
+5             FAT4          TCGA-B7-A5TI           Frame_Shift_Ins
 ```
 
 - **Signature matrix**
@@ -268,25 +269,41 @@ Mutation Annotation Format (MAF) table
   - Used to test mutation-associated differences in a selected signature
 
 ```text
-              ID          CD_8_T_effector       DDR           APM    Immune_Checkpoint  CellCycle_Reg
-1         TCGA-2F-A9KO         4.7093          -4.3653       3.1724          4.5259           -1.3468
-2         TCGA-2F-A9KP        -1.6480           5.0614      -1.3928         -1.4447            3.2313
-3         TCGA-2F-A9KQ        -2.1915         -11.1568      -1.8568         -1.7691            0.6771
-4         TCGA-2F-A9KR         0.0528           3.2845       1.6877         -0.2206           -1.3867
-5         TCGA-2F-A9KT        -0.9226           7.1762      -1.6106         -1.0915           -1.1749
+          ID             CD_8_T_effector       DDR        APM       Immune_Checkpoint   CellCycle_Reg
+1         TCGA-2F-A9KO          4.7093        -4.3653     3.1724          4.5259           -1.3468
+2         TCGA-2F-A9KP         -1.6480         5.0614    -1.3928         -1.4447            3.2313
+3         TCGA-2F-A9KQ         -2.1915       -11.1568    -1.8568         -1.7691            0.6771
+4         TCGA-2F-A9KR          0.0528         3.2845     1.6877         -0.2206           -1.3867
+5         TCGA-2F-A9KT         -0.9226         7.1762    -1.6106         -1.0915           -1.1749
+```
+
+- **Clinical and survival data**
+  - Uploaded in **Survival Analysis**
+  - Must contain a sample ID column, survival-time variable, and survival-status variable
+  - Used together with the generated mutation matrix for mutation-based survival analysis
+
+```text
+          ID             OS_time       OS_status
+1         TCGA-2F-A9KO       18.2             1
+2         TCGA-2F-A9KP       32.6             0
+3         TCGA-2F-A9KQ       11.4             1
+4         TCGA-2F-A9KR       45.8             0
+5         TCGA-2F-A9KT       27.1             1
 ```
 
 Intermediate data generated within the workflow include:
 
 - binary mutation matrix
 - subtype-specific mutation matrices such as SNP, INDEL, or Frameshift tables
-- mutation-associated plots generated in downstream analysis
+- mutation-associated plots
+- mutation–clinical integrated data
+- mutation-associated survival statistics
 
-**Build Mutation Matrix**
+**Part 1 · Build Mutation Matrix**
 
 This step converts the uploaded mutation annotation file into a binary mutation matrix for downstream analysis.
 
-The generated matrix is automatically passed to the next step in the workflow.
+The generated matrix is automatically passed to both **Find Mutations** and **Survival Analysis**.
 
 **Parameters**
 
@@ -309,11 +326,11 @@ The generated matrix is automatically passed to the next step in the workflow.
 5. Click **Run Analysis**.
 6. Review the generated mutation matrix.
 
-**Find Mutations**
+**Part 2 · Find Mutations**
 
 This step identifies mutations associated with a selected signature using the mutation matrix generated in the previous step.
 
-It produces at least two plots:
+It produces two principal plots:
 
 - **Oncoprint**
 - **Box Plot**
@@ -361,16 +378,48 @@ It produces at least two plots:
 1. Open the **Find Mutations** tab.
 2. Upload the signature matrix.
 3. Set the **ID Column** and select the target **Signature**.
-4. Choose the mutation frequency threshold and statistical method.
-5. Adjust oncoprint and box plot parameters if needed.
+4. Choose the mutation-frequency threshold and statistical method.
+5. Adjust the oncoprint and box-plot parameters if needed.
 6. Click **Run Analysis**.
 7. Review the generated **Oncoprint** and **Box Plot** results.
 
-**How the workflow connects the two parts**
+**Part 3 · Survival Analysis**
 
-After **Build Mutation Matrix** is completed, the generated mutation matrix is automatically used as the mutation input for **Find Mutations**.
+This step integrates the mutation matrix generated in **Build Mutation Matrix** with user-uploaded clinical and survival data.
 
-You only need to upload the signature matrix in the second step and then run the mutation-association analysis.
+The matched data are automatically passed to **Batch Survival** for screening associations between multiple mutations and patient survival.
+
+**Main inputs**
+
+- **Clinical Data**
+  - User-uploaded clinical and survival table
+
+- **ID Column**
+  - Sample ID column used to match the clinical data with the mutation matrix
+
+- **Variables**
+  - Mutations selected for batch survival screening
+
+- **Time**
+  - Survival-time variable
+
+- **Status**
+  - Survival-status variable coded as `0` and `1`
+
+**Survival Analysis steps**
+
+1. Open the **Survival Analysis** tab.
+2. Upload the clinical and survival data.
+3. Select the sample ID, survival-time, and survival-status columns.
+4. Select one or more mutations for batch survival analysis.
+5. Click **Run Analysis**.
+6. Review the mutation-associated survival results.
+
+**How the workflow connects the three parts**
+
+After **Build Mutation Matrix** is completed, the generated mutation matrix is automatically passed to both **Find Mutations** and **Survival Analysis**.
+
+Users only need to upload the signature matrix in **Find Mutations** and the clinical data in **Survival Analysis**. The workflow automatically coordinates the mutation matrix with these downstream inputs.
 
 **Output**
 
@@ -380,14 +429,16 @@ The workflow returns results that can be reused for mutation-related interpretat
 - subtype-specific mutation matrix tables
 - mutation-associated oncoprint
 - mutation-associated box plot
-- result files generated by the mutation analysis step
+- mutation–clinical integrated data
+- batch mutation-survival analysis results
+- result files generated by the downstream modules
 
 **Download**
 
 - Tables generated in the workflow can be exported from their corresponding **Download** panels.
-- Plots generated in the workflow can be exported from the **Download** panels.
-- An initial plot size is provided, which can be adjusted if needed.
-- If needed, you can adjust the plot width and height before downloading to obtain a more suitable layout.
+- Plots generated in the workflow can be exported from the corresponding **Download** panels.
+- An initial plot size is provided and can be adjusted if needed.
+- Plot width and height can be modified before downloading to obtain a more suitable layout.
 
 
 ## Signature-Gene Workflow
