@@ -5,8 +5,8 @@ date: "`r format(Sys.Date(), '%Y-%m-%d')`"
 site: bookdown::bookdown_site
 bibliography: [book.bib]
 link-citations: yes
-github-repo: qingcongl/IOBRportal_book
-url: https://qingcongl.github.io/IOBRportal_book/
+github-repo: IOBR/IOBRportal_book
+url: https://iobr.github.io/IOBRportal_book/
 description: |
   Tutorials and documentation for IOBRportal.
 ---
@@ -54,7 +54,7 @@ The platform provides three principal user-uploaded data workflows:
 | 🌐 **Primary server** | [https://iobr.github.io/IOBRportal/](https://iobr.github.io/IOBRportal/) |
 | 🌐 **Backup server** | [https://lisom.work/shinyapps/IOBRportal/](https://lisom.work/shinyapps/IOBRportal/) |
 | 📦 **R package** | [https://github.com/IOBR/IOBRportal](https://github.com/IOBR/IOBRportal) |
-| 📖 **Documentation** | [https://qingcongl.github.io/IOBRportal_book/](https://qingcongl.github.io/IOBRportal_book/) |
+| 📖 **Documentation** | [https://iobr.github.io/IOBRportal_book/](https://iobr.github.io/IOBRportal_book/) |
 
 To install and run IOBRportal locally:
 
