@@ -96,6 +96,8 @@ If you use IOBR ecosystem in your research, please cite the relevant computation
 
 2. Fang Y, Kong Y, Rong G, Luo Q, Liao W, Zeng D. **Systematic investigation of tumor microenvironment and antitumor immunity with IOBR.** *Med Research*. 2025;1(1):136–140. [doi:10.1002/mdr2.70001](https://doi.org/10.1002/mdr2.70001)
 
+3. Luo Q, Qian H, Liu Y, ... , Wang S, Zeng D. **IOBRportal: a cloud-based integrated platform for multidimensional decoding of tumor microenvironment and genomic landscapes.** *Cancer Immunol Immunother*. 2026. [doi:10.1007/s00262-026-04540-7](https://doi.org/10.1007/s00262-026-04540-7)
+
 ## ✉️ Reporting bugs
 
 Report bugs or request features through [GitHub Issues](https://github.com/IOBR/IOBRportal/issues).
